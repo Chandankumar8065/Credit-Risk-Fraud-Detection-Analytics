@@ -1,0 +1,5 @@
+# SQL is a data-language in GitHub Linguist; include it in repository language statistics.
+*.sql linguist-detectable=true
+
+# DAX source is kept in a dedicated .dax file. GitHub Linguist support for DAX
+# is being developed upstream; avoid falsely classifying DAX as SQL or Python.
