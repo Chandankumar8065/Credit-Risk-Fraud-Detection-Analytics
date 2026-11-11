@@ -8,7 +8,7 @@ An end-to-end data analytics portfolio project built using Python, SQL, and Powe
 
 - **Python:** data loading, cleaning, validation, exploratory data analysis (EDA), and analytical summaries.
 - **SQL:** database/table setup, post-import validation, and 50 business analysis queries.
-- **Power BI:** dashboards for loan default, fraud detection, and loan repayment.
+- **Power BI:** dashboards for loan default, fraud detection, and loan repayment, using DAX measures for KPI calculations.
 - **Dataset scale:** 1,250,000 records across five CSV datasets.
 
 ## Dashboards
@@ -75,7 +75,7 @@ Credit-Risk-Fraud-Detection-Analytics/
 
 ## Tools
 
-Python · Pandas · NumPy · Matplotlib · Seaborn · SQL · Power BI
+Python · Pandas · NumPy · Matplotlib · Seaborn · SQL · Power BI · DAX
 
 ---
 Created as a data analytics portfolio project.
