@@ -15,3 +15,8 @@ A fourth screenshot supplied in the handoff is titled **Customer Churn Analysis*
 The project was designed around aggregated summary tables for dashboard development to reduce the memory burden of loading all 1.25 million source records into Power BI on a low-memory computer.
 
 See the root README and [Data Validation Report](../Documentation/Data_Validation.md) for data scale and checks.
+
+
+## DAX
+
+Power BI measures are documented in [DAX_Measures.dax](DAX_Measures.dax) and [DAX_Measures.txt](DAX_Measures.txt). These are DAX expressions intended to be created as measures in the Power BI model; the text and source references are documentation and starter code, not a serialized copy of the PBIX semantic model.
