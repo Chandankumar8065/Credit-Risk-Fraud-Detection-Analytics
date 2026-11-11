@@ -13,15 +13,9 @@ An end-to-end data analytics portfolio project built using Python, SQL, and Powe
 
 ## Dashboards
 
-Preview images are available in [Dashboard_Previews](Dashboard_Previews/).
+The three report names are documented in [PowerBI](PowerBI/README.md). Screenshot PNGs and PBIX binaries are still pending upload to this repository; the preview folder currently contains an upload note, not the image files.
 
-| Dashboard | Preview |
-|---|---|
-| Loan Default Analysis | [View preview](Dashboard_Previews/Loan_Default_Analysis.png) |
-| Fraud Detection Analysis | [View preview](Dashboard_Previews/Fraud_Detection_Analysis.png) |
-| Loan Repayment Analysis | [View preview](Dashboard_Previews/Loan_Repayment_Analysis.png) |
-
-A Customer Churn screenshot was also supplied during the project handoff. It is kept clearly labelled as a separate reference and is not presented as a Credit Risk dashboard.
+A Customer Churn screenshot was also supplied during the project handoff. It belongs to a separate project and is not presented as a Credit Risk dashboard.
 
 ## Dataset inventory
 
@@ -69,8 +63,8 @@ Credit-Risk-Fraud-Detection-Analytics/
 1. Start with the data dictionary and dataset README.
 2. Review the Python notebook for data checks and EDA.
 3. Review the SQL scripts for database setup, validation, and business questions.
-4. Open the dashboard preview PNGs for a quick look at the Power BI reports.
-5. Open PBIX files in Power BI Desktop to interact with the reports.
+4. Review the Power BI report inventory in [PowerBI/README.md](PowerBI/README.md).
+5. When the PBIX binaries are added, open them in Power BI Desktop to interact with the reports.
 
 ## Reproducibility and limitations
 
