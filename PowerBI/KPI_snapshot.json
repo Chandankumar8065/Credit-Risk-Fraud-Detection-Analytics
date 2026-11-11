@@ -1,0 +1,15 @@
+{
+  "total_customers": 87719,
+  "total_applications": 131579,
+  "total_loans": 65789,
+  "total_principal_inr": 49417761244.0,
+  "total_defaults": 3295,
+  "default_rate": 0.05008436060739637,
+  "total_transactions": 438601,
+  "fraud_transactions": 3360,
+  "fraud_rate": 0.007660721247785573,
+  "total_repayment_installments": 526312,
+  "scheduled_repayment_inr": 14542606726.400002,
+  "paid_repayment_inr": 13563939156.789999,
+  "net_repayment_shortfall_inr": 978667569.6099999
+}
