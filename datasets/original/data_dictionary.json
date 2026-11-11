@@ -1,0 +1,66 @@
+{
+  "customers.csv": {
+    "customer_id": "Primary key.",
+    "age": "Age in years.",
+    "city": "Customer city.",
+    "employment_type": "Employment category.",
+    "annual_income_inr": "Annual income in INR.",
+    "existing_monthly_debt_inr": "Estimated monthly debt in INR.",
+    "customer_since": "Relationship start date.",
+    "kyc_status": "Synthetic KYC status.",
+    "risk_segment": "Synthetic customer risk segment."
+  },
+  "loan_applications.csv": {
+    "application_id": "Primary key.",
+    "customer_id": "Foreign key to customers.",
+    "application_date": "Application date.",
+    "loan_type": "Requested loan product.",
+    "requested_amount_inr": "Requested amount in INR.",
+    "annual_income_inr": "Income at application.",
+    "credit_score": "Synthetic bureau-style score, 300–900.",
+    "debt_to_income_ratio": "Monthly debt divided by gross monthly income.",
+    "employment_stability_score": "Synthetic score from 0 to 1.",
+    "decision": "65,789 approved and 65,790 rejected.",
+    "decision_reason": "Simplified synthetic decision explanation."
+  },
+  "loan_accounts.csv": {
+    "loan_id": "Primary key.",
+    "application_id": "Foreign key to approved application.",
+    "customer_id": "Foreign key to customers.",
+    "loan_type": "Loan product.",
+    "disbursement_date": "Disbursement date.",
+    "principal_amount_inr": "Disbursed principal in INR.",
+    "annual_interest_rate_pct": "Annual interest rate.",
+    "tenure_months": "Contractual tenure.",
+    "credit_score_at_origination": "Credit score at origination.",
+    "debt_to_income_ratio_at_origination": "DTI at origination.",
+    "default_flag": "Simulated default label: 1 yes, 0 no.",
+    "account_status": "Synthetic account status."
+  },
+  "transactions.csv": {
+    "transaction_id": "Primary key.",
+    "customer_id": "Foreign key to customers.",
+    "transaction_timestamp": "Transaction timestamp.",
+    "transaction_type": "Transaction type.",
+    "channel": "POS, Mobile App, Web, or ATM.",
+    "merchant_category": "Merchant category.",
+    "amount_inr": "Transaction amount in INR.",
+    "device_new_flag": "1 indicates new-device signal.",
+    "international_flag": "1 indicates international activity.",
+    "transactions_last_24h": "Synthetic transaction velocity.",
+    "transaction_status": "Successful, Failed, or Blocked.",
+    "fraud_flag": "Simulated fraud label: 1 fraud, 0 non-fraud.",
+    "fraud_reason_signal": "Illustrative signal, not a confirmed real-world explanation."
+  },
+  "loan_repayments.csv": {
+    "repayment_id": "Primary key.",
+    "loan_id": "Foreign key to loan_accounts.",
+    "customer_id": "Foreign key to customers.",
+    "installment_number": "Installment sequence 1–8.",
+    "due_date": "Scheduled due date.",
+    "scheduled_amount_inr": "Scheduled instalment in INR.",
+    "paid_amount_inr": "Amount paid in INR.",
+    "payment_status": "Paid, Paid Late, Overdue, or Missed.",
+    "days_late": "Days late; zero unless marked Paid Late."
+  }
+}
