@@ -1,0 +1,54 @@
+# Credit Risk & Fraud Detection — DAX Measure Starter
+
+These measures are designed for the compact summary CSVs in the lightweight Power BI package. Create each measure in Power BI using Modeling > New measure.
+
+## Customer profile
+
+```DAX
+Total Customers = SUM('01_customer_profile_summary'[customers])
+Average Customer Age = AVERAGE('01_customer_profile_summary'[avg_age])
+Average Annual Income = AVERAGE('01_customer_profile_summary'[avg_annual_income_inr])
+```
+
+## Applications
+
+```DAX
+Total Applications = SUM('06_application_summary'[applications])
+Average Requested Amount = AVERAGE('06_application_summary'[avg_requested_amount_inr])
+```
+
+## Loans
+
+```DAX
+Total Loans = SUM('02_loan_type_summary'[total_loans])
+Total Defaults = SUM('02_loan_type_summary'[defaults])
+Total Principal = SUM('02_loan_type_summary'[total_principal_inr])
+Default Rate = DIVIDE([Total Defaults], [Total Loans], 0)
+Average Interest Rate = AVERAGE('02_loan_type_summary'[avg_interest_rate_pct])
+```
+
+## Fraud
+
+```DAX
+Total Transactions = SUM('07_fraud_channel_type_merchant'[transactions])
+Fraud Transactions = SUM('07_fraud_channel_type_merchant'[fraud_transactions])
+Fraud Rate = DIVIDE([Fraud Transactions], [Total Transactions], 0)
+Transaction Value = SUM('07_fraud_channel_type_merchant'[transaction_value_inr])
+Average Transaction Value = DIVIDE([Transaction Value], [Total Transactions], 0)
+```
+
+## Repayments
+
+```DAX
+Total Installments = SUM('11_repayment_status_summary'[installments])
+Scheduled Amount = SUM('11_repayment_status_summary'[scheduled_amount_inr])
+Paid Amount = SUM('11_repayment_status_summary'[paid_amount_inr])
+Payment Shortfall = [Scheduled Amount] - [Paid Amount]
+Collection Rate = DIVIDE([Paid Amount], [Scheduled Amount], 0)
+```
+
+## Important measure guidance
+
+- The CSVs are aggregated summaries. Distinct-counting customer_id or loan_id is not possible because identifiers are intentionally omitted.
+- Weighted ratios should be calculated from summed numerators and denominators, not by averaging row-level rates.
+- Avoid summing average values; use weighted calculations where needed.
