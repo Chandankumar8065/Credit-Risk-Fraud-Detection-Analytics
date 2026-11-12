@@ -37,4 +37,4 @@ This order respects the foreign-key dependencies.
 
 All records and labels are synthetic. The fraud reason field is illustrative, not a confirmed explanation. The transaction table is not a complete bank ledger. The repayment data does not contain a reliable actual payment-date field, so payment status and lateness indicators cannot be independently audited from payment timestamps.
 
-The validation script is intended to be run after import. Do not treat the presence of SQL scripts in the repository as proof that they have been executed in a live database.
+The validation script is intended to be run after import. The documented validation counts are from the recorded Python checks; rerun the SQL checks in your own MySQL instance to verify the imported tables. Do not treat the presence of SQL scripts in the repository as proof that they have been executed in a live database.
