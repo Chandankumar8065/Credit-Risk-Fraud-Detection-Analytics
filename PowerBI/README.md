@@ -1,6 +1,6 @@
 # Power BI Reports
 
-This folder contains four Power BI Desktop reports, the DAX measure reference, a KPI snapshot, and a guide to the lightweight summary model.
+This folder contains four Power BI Desktop reports, their dashboard previews, DAX measures, KPI snapshot and guidance for rebuilding the lightweight summary model.
 
 ## Report inventory
 
@@ -15,16 +15,27 @@ See the [Dashboard Preview Gallery](../Dashboard_Previews/README.md) to view all
 
 ## Supporting files
 
-- [DAX_Measures.dax](DAX_Measures.dax) — copy-ready measure definitions.
-- [DAX_Measures.txt](DAX_Measures.txt) — readable DAX reference.
+- [DAX_Measures.dax](DAX_Measures.dax) and [DAX_Measures.txt](DAX_Measures.txt) — copy-ready measure definitions, including weighted averages.
 - [KPI_snapshot.json](KPI_snapshot.json) — selected project KPI values.
-- [Lightweight_PowerBI_Guide.md](Lightweight_PowerBI_Guide.md) — report structure, modelling guidance, and limitations.
+- [Lightweight_PowerBI_Guide.md](Lightweight_PowerBI_Guide.md) — model structure, limitations and rebuild instructions.
+- [Summary data guide](summary_data/README.md) — summary table names and generation instructions.
+- [Summary builder script](../Python/build_powerbi_summaries.py) — recreates the 11 aggregated CSV files from the cleaned source datasets.
+
+## Rebuild the report data
+
+The summary CSVs are generated locally and are not currently committed individually. From the repository root, run:
+
+```bash
+python Python/build_powerbi_summaries.py
+```
+
+Then load the generated files from `PowerBI/summary_data/` in Power BI Desktop and update the report data-source paths if required. The script processes one source dataset at a time to reduce memory pressure.
 
 ## Modelling approach
 
-The source data contains 1.25 million records. Aggregated summary tables were used to keep Power BI responsive on a low-memory laptop. This supports portfolio-level trends and KPIs, but it does not preserve unrestricted row-level drill-through.
+The source data contains 1.25 million records. Aggregated summary tables are used to keep Power BI responsive on a low-memory laptop. This supports portfolio-level trends and KPIs, but it does not preserve unrestricted row-level drill-through.
 
-When calculating ratios, divide aggregated numerators by aggregated denominators (for example, total defaults divided by total loans). Avoid averaging pre-calculated group rates unless a weighted calculation is intended.
+For ratios, divide aggregated numerators by aggregated denominators. For averages over grouped averages, use weighted calculations based on each group's count. The supplied DAX measures follow these rules.
 
 ## Interpretation notes
 
