@@ -8,7 +8,7 @@
 
 1. Clone or download this repository.
 2. Install dependencies: `pip install -r requirements.txt` (or install `pandas`, `numpy`, `matplotlib` and `seaborn`).
-3. Open the notebook from the repository root or from this `Python/` folder.
+3. The full notebook loads all five datasets into memory. Use Google Colab or a machine with sufficient RAM; the complete notebook may not be suitable for a 4 GB laptop. Open the notebook from the repository root or from this `Python/` folder.
 4. Keep the five compressed source files in `datasets/cleaned/`. The notebook reads them directly with GZIP support.
 5. Run all cells from top to bottom. Output CSVs are written to `outputs/python_analysis/`; the source datasets are not overwritten.
 
