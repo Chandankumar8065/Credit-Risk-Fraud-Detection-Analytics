@@ -80,6 +80,7 @@ CREATE TABLE IF NOT EXISTS repayments (
     paid_amount_inr DECIMAL(15,2),
     payment_status VARCHAR(30),
     days_late INT,
+    payment_difference DECIMAL(15,2),
     CONSTRAINT fk_repay_loan FOREIGN KEY (loan_id)
         REFERENCES loans(loan_id),
     CONSTRAINT fk_repay_customer FOREIGN KEY (customer_id)
