@@ -42,7 +42,7 @@ The editable Power BI files are in the [PowerBI folder](PowerBI/). Open the PBIX
 | Loan applications | 131,579 | 11 |
 | Loan accounts | 65,789 | 12 |
 | Transactions | 438,601 | 13 |
-| Loan repayments | 526,312 | 9 |
+| Loan repayments | 526,312 | 10 |
 | **Total** | **1,250,000** | — |
 
 The cleaned datasets are stored as compressed CSV files in [datasets/cleaned](datasets/cleaned/). The data dictionary and relationship overview are in [datasets/original](datasets/original/).
@@ -79,8 +79,9 @@ These are results from the synthetic project data. The repayment difference is a
     ├── Dashboard_Previews/       # Four dashboard screenshots
     ├── Documentation/            # Validation report and key findings
     ├── PowerBI/                  # Four PBIX reports, DAX, KPI snapshot, guide
-    ├── Python/                   # Analysis notebook and instructions
+    ├── Python/                   # Analysis notebook, summary builder, and instructions
     ├── SQL/                      # Schema, validation, and 50 analysis queries
+    ├── requirements.txt          # Python dependencies
     ├── datasets/
     │   ├── cleaned/              # Five compressed cleaned CSV datasets
     │   └── original/             # Data dictionary and source dataset notes
@@ -97,7 +98,11 @@ These are results from the synthetic project data. The repayment difference is a
 - [Data validation report](Documentation/Data_Validation.md)
 - [Key findings and caveats](Documentation/Key_Findings.md)
 
-### 2. Load the cleaned data
+### 2. Run the Python analysis
+
+Install dependencies with `pip install -r requirements.txt`. The full exploratory notebook loads the five datasets together; use Google Colab or a machine with sufficient memory for the complete notebook. For low-memory computers, use the summary builder (`python Python/build_powerbi_summaries.py`), which processes one source dataset at a time.
+
+### 3. Load the cleaned data
 
 The files in datasets/cleaned are gzip-compressed CSVs. Pandas can read them directly:
 
