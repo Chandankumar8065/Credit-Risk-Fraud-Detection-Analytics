@@ -1,27 +1,40 @@
-# SQL Package
+# SQL Analysis
 
-**Dialect:** MySQL 8.0.
+**SQL dialect:** MySQL 8.0
 
-## Files
-- `01_Database_and_Tables.sql`: creates the database and five InnoDB tables.
-- `02_Post_Import_Validation.sql`: validates imported row counts, primary keys, and foreign-key references.
-- `03_50_Business_Analysis_Queries.sql`: 50 numbered business-analysis queries.
+This folder contains the database schema, post-import validation checks, and 50 business analysis queries.
 
-## Source CSV mapping
-- `customers.csv` → `customers`
-- `loan_applications.csv` → `applications`
-- `loan_accounts.csv` → `loans`
-- `transactions.csv` → `transactions`
-- `loan_repayments.csv` → `repayments`
+## Files and execution order
+
+1. [01_Database_and_Tables.sql](01_Database_and_Tables.sql) — create the database and five InnoDB tables.
+2. Import the five cleaned datasets into the matching tables (see mapping below).
+3. [02_Post_Import_Validation.sql](02_Post_Import_Validation.sql) — check row counts, primary keys, and foreign-key references after import.
+4. [03_50_Business_Analysis_Queries.sql](03_50_Business_Analysis_Queries.sql) — run the 50 numbered business analysis queries.
+
+## Dataset-to-table mapping
+
+| Compressed dataset | Target table |
+|---|---|
+| customers_cleaned.csv.gz | customers |
+| applications_cleaned.csv.gz | applications |
+| loans_cleaned.csv.gz | loans |
+| transactions_cleaned.csv.gz | transactions |
+| repayments_cleaned.csv.gz | repayments |
+
+The files are in [datasets/cleaned](../datasets/cleaned/). Extract the gzip files before using a CSV import workflow that does not support compressed input.
 
 ## Import order
+
 1. customers
 2. applications
 3. loans
 4. transactions
 5. repayments
 
-The order respects the foreign-key dependencies.
+This order respects the foreign-key dependencies.
 
-## Important limitations
-All records and labels are synthetic. Results are for learning and portfolio analysis, not real-world credit decisions or validated fraud prediction. The fraud reason field is illustrative, not a confirmed explanation. Do not interpret transaction sums as bank account balances. The repayment source does not contain an actual payment-date field, so status/late indicators cannot be independently audited from dates.
+## Notes and limitations
+
+All records and labels are synthetic. The fraud reason field is illustrative, not a confirmed explanation. The transaction table is not a complete bank ledger. The repayment data does not contain a reliable actual payment-date field, so payment status and lateness indicators cannot be independently audited from payment timestamps.
+
+The validation script is intended to be run after import. Do not treat the presence of SQL scripts in the repository as proof that they have been executed in a live database.

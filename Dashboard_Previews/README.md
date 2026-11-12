@@ -1,10 +1,23 @@
-# Dashboard Preview Images
+# Dashboard Preview Gallery
 
-Dashboard screenshot previews are being staged for this directory.
+This folder contains the four screenshots for the Credit Risk & Fraud Detection Analytics Power BI reports.
 
-Expected credit-risk/fraud preview files:
-- `Loan_Default_Analysis.png`
-- `Fraud_Detection_Analysis.png`
-- `Loan_Repayment_Analysis.png`
+## 1. Credit Risk Overview
 
-The Customer Churn screenshot supplied during the handoff is from a different project and is not included in this project's dashboard showcase.
+![Credit Risk Overview](Credit_Risk_Overview.png)
+
+## 2. Loan Default Analysis
+
+![Loan Default Analysis](Loan_Default_Analysis.png)
+
+## 3. Fraud Detection Analysis
+
+![Fraud Detection Analysis](Fraud_Detection_Analysis.png)
+
+## 4. Loan Repayment Analysis
+
+![Loan Repayment Analysis](Loan_Repayment_Analysis.png)
+
+For the interactive report files, see the [Power BI folder](../PowerBI/README.md).
+
+> These dashboards use synthetic portfolio data and are for educational and portfolio demonstration only.

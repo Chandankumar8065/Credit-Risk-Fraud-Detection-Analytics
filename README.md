@@ -1,81 +1,120 @@
 # Credit Risk & Fraud Detection Analytics
 
-An end-to-end data analytics portfolio project built using Python, SQL, and Power BI. The project explores customer profiles, loan applications, loan performance, repayment behaviour, and transaction-level fraud indicators across five synthetic banking datasets.
+An end-to-end banking analytics portfolio project exploring credit risk, loan defaults, repayment performance, and transaction fraud indicators using Python, MySQL, and Power BI.
 
-> **Dataset note:** All records are synthetic and are intended for learning and portfolio demonstration. They do not represent real customers, financial institutions, or actual fraud cases.
+The project combines data preparation, quality validation, SQL business analysis, KPI development, and four Power BI reports across **1,250,000 synthetic records**.
 
-## Project scope
+> **Data disclaimer:** All records, identities, transactions, amounts, dates, and outcome labels are synthetic and created for learning and portfolio demonstration. They do not represent real customers, financial institutions, or verified fraud events.
 
-- **Python:** data loading, cleaning, validation, exploratory data analysis (EDA), and analytical summaries.
-- **SQL:** database/table setup, post-import validation, and 50 business analysis queries.
-- **Power BI:** dashboards for loan default, fraud detection, and loan repayment, using DAX measures for KPI calculations.
-- **Dataset scale:** 1,250,000 records across five CSV datasets.
+---
 
-## Dashboards
+## Project at a glance
 
-The three report names are documented in [PowerBI](PowerBI/README.md). Screenshot PNGs and PBIX binaries are still pending upload to this repository; the preview folder currently contains an upload note, not the image files.
+| Area | Deliverable |
+|---|---|
+| Data | 5 related datasets; 1.25 million records |
+| Python | Cleaning, validation, exploratory analysis, and analytical outputs |
+| SQL | MySQL database setup, post-import checks, and 50 business analysis queries |
+| Power BI | 4 reports covering overview, defaults, fraud, and repayments |
+| Documentation | Data dictionary, validation report, key findings, DAX measures, and usage guides |
 
-A Customer Churn screenshot was also supplied during the project handoff. It belongs to a separate project and is not presented as a Credit Risk dashboard.
+## Dashboard gallery
+
+### 1. Credit Risk Overview
+![Credit Risk Overview](Dashboard_Previews/Credit_Risk_Overview.png)
+
+### 2. Loan Default Analysis
+![Loan Default Analysis](Dashboard_Previews/Loan_Default_Analysis.png)
+
+### 3. Fraud Detection Analysis
+![Fraud Detection Analysis](Dashboard_Previews/Fraud_Detection_Analysis.png)
+
+### 4. Loan Repayment Analysis
+![Loan Repayment Analysis](Dashboard_Previews/Loan_Repayment_Analysis.png)
+
+The editable Power BI files are in the [PowerBI folder](PowerBI/). Open the PBIX files with Power BI Desktop.
 
 ## Dataset inventory
 
-| Dataset | Rows |
+| Dataset | Records | Columns |
+|---|---:|---:|
+| Customers | 87,719 | 9 |
+| Loan applications | 131,579 | 11 |
+| Loan accounts | 65,789 | 12 |
+| Transactions | 438,601 | 13 |
+| Loan repayments | 526,312 | 9 |
+| **Total** | **1,250,000** | — |
+
+The cleaned datasets are stored as compressed CSV files in [datasets/cleaned](datasets/cleaned/). The data dictionary and relationship overview are in [datasets/original](datasets/original/).
+
+## Selected analytical results
+
+| Metric | Result |
 |---|---:|
-| Customers | 87,719 |
+| Total customers | 87,719 |
 | Loan applications | 131,579 |
 | Loan accounts | 65,789 |
+| Defaulted loans | 3,295 |
+| Overall default rate | 5.01% |
+| Total loan principal | ₹49.42 billion |
 | Transactions | 438,601 |
-| Loan repayments | 526,312 |
-| **Total** | **1,250,000** |
+| Fraud-flagged transactions | 3,360 |
+| Fraud-flag rate | 0.77% |
+| Repayment installments | 526,312 |
+| Net scheduled-versus-paid installment difference | ₹978.67 million |
 
-See [data_dictionary.json](datasets/original/data_dictionary.json) for field definitions.
+These are results from the synthetic project data. The repayment difference is an installment-level scheduled-minus-paid measure; it is **not** a verified outstanding-principal balance. See [Key Findings](Documentation/Key_Findings.md) for interpretation and limitations.
 
-## Selected findings
+## Analytical workflow
 
-The following are project analysis results previously calculated from the synthetic data:
-
-- Loan accounts: **65,789**
-- Defaults: **3,295**
-- Overall default rate: **about 5.01%**
-- Transactions: **438,601**
-- Fraud-flagged transactions: **3,360** (**about 0.77%**)
-- Loan repayments: **526,312**
-- Net scheduled-versus-paid installment shortfall: **978,667,569.61** (dataset currency units)
-
-The repayment shortfall is an installment-level difference, not a verified outstanding-principal balance. Fraud reason labels and default flags are synthetic indicators, not evidence of real-world causes.
+1. **Prepare and validate data** — inspect schema, nulls, duplicates, key uniqueness, relationships, date fields, and value ranges.
+2. **Explore with Python** — perform EDA and calculate descriptive and risk-related summaries.
+3. **Analyze with SQL** — create relational tables, validate imports, and answer business questions using 50 queries.
+4. **Build Power BI reports** — present portfolio, default, fraud-indicator, and repayment KPIs.
+5. **Document results** — record validation outcomes, findings, assumptions, and limitations.
 
 ## Repository structure
 
-```text
-Credit-Risk-Fraud-Detection-Analytics/
-├── README.md
-├── datasets/
-│   └── original/
-├── Python/
-├── SQL/
-├── PowerBI/
-├── Dashboard_Previews/
-└── Documentation/
-```
+    Credit-Risk-Fraud-Detection-Analytics/
+    ├── Dashboard_Previews/       # Four dashboard screenshots
+    ├── Documentation/            # Validation report and key findings
+    ├── PowerBI/                  # Four PBIX reports, DAX, KPI snapshot, guide
+    ├── Python/                   # Analysis notebook and instructions
+    ├── SQL/                      # Schema, validation, and 50 analysis queries
+    ├── datasets/
+    │   ├── cleaned/              # Five compressed cleaned CSV datasets
+    │   └── original/             # Data dictionary and source dataset notes
+    ├── .gitattributes
+    └── README.md
 
-## How to explore
+## Getting started
 
-1. Start with the data dictionary and dataset README.
-2. Review the Python notebook for data checks and EDA.
-3. Review the SQL scripts for database setup, validation, and business questions.
-4. Review the Power BI report inventory in [PowerBI/README.md](PowerBI/README.md).
-5. When the PBIX binaries are added, open them in Power BI Desktop to interact with the reports.
+### 1. Read the project documentation
 
-## Reproducibility and limitations
+- [Python notebook and setup](Python/README.md)
+- [SQL scripts and execution order](SQL/README.md)
+- [Power BI reports and measures](PowerBI/README.md)
+- [Data validation report](Documentation/Data_Validation.md)
+- [Key findings and caveats](Documentation/Key_Findings.md)
 
-- The datasets are large; use sufficient memory or the supplied summary outputs for lightweight dashboard work.
-- The SQL scripts are prepared for import and analysis. Unless execution evidence is included, they should be treated as prepared scripts, not proof that every query was run against a live database.
-- Some repayment fields are synthetic. In particular, payment status and late-payment indicators cannot be independently audited without a reliable actual payment-date field.
-- Avoid using post-origination repayment outcomes as input features when building a model intended to predict default at application time; this would cause target leakage.
+### 2. Load the cleaned data
+
+The files in datasets/cleaned are gzip-compressed CSVs. Pandas can read them directly:
+
+    import pandas as pd
+    customers = pd.read_csv("../datasets/cleaned/customers_cleaned.csv.gz")
+
+For large tables on a low-memory computer, read only required columns or use chunked loading.
+
+## Important limitations
+
+- The data and labels are synthetic; results are not suitable for real credit decisions, lending, compliance, or fraud investigations.
+- Fraud reason fields are illustrative signals, not verified causal explanations.
+- The transaction table is not a complete bank ledger and must not be used to infer account balances.
+- The repayment data does not contain a reliable actual payment-date field; payment status and lateness labels cannot be independently audited against payment timestamps.
+- Repayment outcomes occur after loan origination. Using them as features to predict default at application time would cause target leakage.
+- Power BI reports use aggregated summary data to keep the model workable on a low-memory laptop; this limits row-level drill-through and arbitrary detail analysis.
 
 ## Tools
 
-Python · Pandas · NumPy · Matplotlib · Seaborn · SQL · Power BI · DAX
-
----
-Created as a data analytics portfolio project.
+Python, pandas, NumPy, Matplotlib, Seaborn, MySQL 8.0, Microsoft Power BI Desktop, DAX, Jupyter Notebook, and Google Colab.
