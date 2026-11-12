@@ -21,6 +21,8 @@ This folder contains the database schema, post-import validation checks, and 50 
 | transactions_cleaned.csv.gz | transactions |
 | repayments_cleaned.csv.gz | repayments |
 
+The repayments CSV contains a derived `payment_difference` column (paid amount minus scheduled amount); the table schema includes this column as well.
+
 The files are in [datasets/cleaned](../datasets/cleaned/). Extract the gzip files before using a CSV import workflow that does not support compressed input.
 
 ## Import order
